@@ -1,0 +1,28 @@
+--- 
+- hosts: "{{ host_group }}"
+  remote_user: "{{ remote_user }}"
+  gather_facts: false
+  become: true
+  become_method: sudo
+  - tasks:
+    - name: create chaincoin user
+      command: adduser chaincoin-admin
+    - name: add chaincoin-admin to sudo group
+      command: usermod -aG sudo chaincoin-admin
+    - name: copy ufw script
+      copy:
+          src: ufw_allow.sh
+          dest: /tmp/ufw_allow.sh
+    - name: grant script execute permissions
+      command: chmod a+x /tmp/ufw_allow.sh
+    - name: run ufw allow script
+      command: /bin/bash /tmp/ufw_allow.sh
+    - name: copy package dependency installation script
+      copy:
+          src: dependency_install.sh
+          dest: /tmp/dependency_install.sh
+    - name: grant dependency installation script execute permissions
+      command: chmod a+x /tmp/dependency_install.sh
+    - name: run dependency installation script
+      command: /bin/bash /tmp/dependency_install.sh
+    
