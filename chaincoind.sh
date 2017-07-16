@@ -1,4 +1,5 @@
 #! /bin/bash
+primary_interface_ip=$(ifconfig | head -n 2 | sed '1d' | awk '{print $2}' | awk -F ':' '{print $2}')
 chaincoind --daemon & # append to background 
 echo "We're now going to wait 900 seconds to allow chaincoind time to sync"
 sleep 900
@@ -18,7 +19,7 @@ sleep 60
 echo "listen=1" >> ~/.chaincoin/chaincoin.conf
 echo "masternode=1" >> ~/.chaincoin/chaincoin.conf
 echo "masternodeprivkey=$(cat chaincoind_masternode_key)" >> ~/.chaincoin/chaincoin.conf
-echo "masternodeaddr=<ip>:11994" >> ~/.chaincoin/chaincoin.conf # going to add code to automatically get ip
+echo "masternodeaddr=$primary_interface_ip:11994" >> ~/.chaincoin/chaincoin.conf
 chaincoind --daemon &
 echo "Waiting for 15 transactions. Sleeping for 1800 seconds"
 sleep 1800
