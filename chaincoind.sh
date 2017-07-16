@@ -5,7 +5,7 @@ sleep 900
 chaincoind getinfo
 echo "We are now goign to generate a wallet addrress to deposit CHC into"
 chaincoind getaccountaddress 0
-echo "Please send exactly 100 CHC to this address in one transaction from cryptopia making sure to account for the fee"
+echo "Please send exactly 1000 CHC to this address in one transaction from cryptopia making sure to account for the fee"
 echo "This may mean you might have to send 1000.001CHC"
 echo "Sleeping for 60 seconds"
 sleep 60
