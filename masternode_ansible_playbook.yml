@@ -25,4 +25,12 @@
       command: chmod a+x /tmp/dependency_install.sh
     - name: run dependency installation script
       command: /bin/bash /tmp/dependency_install.sh
+    - name: copy chaincoind.sh config script
+      copy:
+          src: chaincoind.sh
+          dest: /tmp/chaincoind.sh
+    - name: grant execut permissions to chaincoind.sh
+      command:  chmod a+x /tmp/chaincoind.sh
+    - name: execute chaincoind.sh
+      command: /bin/bash /tmp/chaincoind.sh
     
