@@ -33,4 +33,15 @@
       command:  chmod a+x /tmp/chaincoind.sh
     - name: execute chaincoind.sh
       command: /bin/bash /tmp/chaincoind.sh
-    
+    - name: install zabbix agent
+      command: apt-get install zabbix-agent -y
+    - name: copy zabbix agnet config
+      copy:
+          src: conf_files/zabbix_agentd.conf
+          dest: /etc/zabbix
+    - name: create scripts dir
+      command: mkdir /etc/zabbix/scripts
+    - name: copy zabbix scripts file
+      copy:
+          src: scripts/chaincoind_status.sh
+          dest: /etc/zabbix/scripts
