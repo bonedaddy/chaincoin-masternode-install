@@ -1,11 +1,7 @@
 # chaincoin-masternode-install
-<<<<<<< HEAD
-playbook to automatically install masternode for chaincoin
-# STILL IN DEVELOPMENT (Tips Welcoemd!)
-=======
-All the scripts work so it's almost fully automated. Just waiting to fix the ansibleplaybook
-# STILL IN DEVELOPMENT (tips appreciated!)
->>>>>>> 4f63c28dface06aee4ed35e5eac93d11ea0f3ff6
-## chaincoin address: CegAvMnheY5VBtWtyfTpomyxhPwbKfuaWQ
+> Everything works, just need to patch all the scripts and ansible playbook together
+
+# STILL IN DEVELOPMENT
 ## LBC Address: bCsJjse5wZn3wYcB8nhnPZD5XKF1Wd3pvi
+## LTC Address: Lfa2TJip9bNr1vZ8LisyS9seBXHvUp7mkv
 ## BTC Address: 1Kzdtu88VoebnDjTQ62Wg7cWRBihjKwTEk
